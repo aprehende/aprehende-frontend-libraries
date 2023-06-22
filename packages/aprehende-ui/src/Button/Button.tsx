@@ -1,14 +1,20 @@
 import React from "react";
 
-const Button = React.forwardRef<
-  HTMLButtonElement,
-  React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ children, ...rest }, ref) => {
-  return (
-    <button ref={ref} {...rest}>
-      {children}
-    </button>
-  );
-});
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  startRender?: React.ReactNode;
+  endRender?: React.ReactNode;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, startRender, endRender, ...rest }, ref) => {
+    return (
+      <button ref={ref} {...rest}>
+        {startRender && <span>{startRender}</span>}
+        {children}
+        {endRender && <span>{endRender}</span>}
+      </button>
+    );
+  }
+);
 
 export default Button;
