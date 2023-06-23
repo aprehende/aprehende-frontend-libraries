@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Avatar > snapshot with name 1`] = `
+<div>
+  <div
+    class="css-1dw3puw"
+  >
+    <span
+      class="css-16rvg39"
+    >
+      JR
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Avatar > snapshot with picture 1`] = `
+<div>
+  <div
+    class="css-jbmq27"
+  />
+</div>
+`;
+
+exports[`Avatar > snapshot with picture and name 1`] = `
+<div>
+  <div
+    class="css-jbmq27"
+  />
+</div>
+`;
