@@ -1,9 +1,9 @@
-import { Input } from "@aprehende/ui";
+import { Chip } from "@aprehende/ui";
 
 function App() {
   return (
     <>
-      <Input placeholder="Text" widthFull startRender={<span>0/50</span>} />
+      <Chip>Chip</Chip> <Chip onDelete={() => alert("deleted")}>Chip</Chip>
     </>
   );
 }
