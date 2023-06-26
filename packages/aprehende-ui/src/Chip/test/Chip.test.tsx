@@ -9,6 +9,11 @@ describe('Chip', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('should not render close icon', () => {
+    const { queryByAltText } = render(<Chip>Chip</Chip>);
+    expect(queryByAltText('close')).not.toBeInTheDocument();
+  });
+
   it('should render the chip with the text', () => {
     const { getByText } = render(<Chip>Chip</Chip>);
     expect(getByText('Chip')).toBeInTheDocument();
