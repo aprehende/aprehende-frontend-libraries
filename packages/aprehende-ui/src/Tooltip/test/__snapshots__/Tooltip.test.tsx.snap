@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tooltip > should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1tx6twl"
+  >
+    <div>
+      Tooltip trigger
+    </div>
+  </div>
+</DocumentFragment>
+`;
