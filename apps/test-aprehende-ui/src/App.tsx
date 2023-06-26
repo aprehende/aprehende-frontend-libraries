@@ -1,11 +1,9 @@
-import { Tooltip } from "@aprehende/ui";
+import { Input } from "@aprehende/ui";
 
 function App() {
   return (
     <>
-      <Tooltip content="This is a tooltip" direction="right">
-        <div>Jordan</div>
-      </Tooltip>
+      <Input placeholder="Text" widthFull startRender={<span>0/50</span>} />
     </>
   );
 }
