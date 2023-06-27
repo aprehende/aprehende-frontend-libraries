@@ -1,56 +1,19 @@
-import { Table } from "@aprehende/ui";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  properties: {
-    city: string;
-    country: string;
-  };
-}
-
-const users: User[] = [
-  {
-    id: 1,
-    name: "John Doe",
-    email: "johndoe@mail.com",
-    properties: {
-      city: "New York",
-      country: "USA",
-    },
-  },
-];
+import { Modal, Button } from "@aprehende/ui";
+import { useState } from "react";
 
 function App() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const close = () => setIsOpen(false);
+
   return (
-    <div>
-      <Table<User>
-        data={users}
-        columns={[
-          {
-            title: "Name",
-            key: "name",
-            render: (name: string) => <strong>{name}</strong>,
-          },
-          {
-            title: "Email",
-            key: "email",
-            render: (email: string) => <a href={`mailto:${email}`}>{email}</a>,
-          },
-          {
-            title: "City",
-            key: "properties",
-            render: (properties: User["properties"]) => properties.city,
-          },
-          {
-            title: "Country",
-            key: "properties",
-            render: (properties: User["properties"]) => properties.country,
-          },
-        ]}
-      />
-    </div>
+    <>
+      <Button onClick={() => setIsOpen(true)}>Click me!</Button>
+      {isOpen && (
+        <Modal open={isOpen} onClose={close} backdrop>
+          Hola
+        </Modal>
+      )}
+    </>
   );
 }
 
