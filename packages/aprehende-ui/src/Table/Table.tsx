@@ -26,8 +26,8 @@ function Table<TableData>({
   }, []);
 
   return (
-    <TableStyled ref={tableRef}>
-      <THead isSticky={isSticky} top={top}>
+    <TableStyled ref={tableRef} role="table">
+      <THead isSticky={isSticky} top={top} data-testid="thead">
         <THeader>
           {columns.map((column, idx) => (
             <TH
@@ -40,14 +40,15 @@ function Table<TableData>({
           ))}
         </THeader>
       </THead>
-      <TBody>
+      <TBody data-testid="tbody">
         {data.map((row, idx) => (
-          <ContainerRow key={idx}>
+          <ContainerRow key={idx} data-testid="tr">
             {columns.map(({ key, render, isActions }, idxColumn) => (
               <TD
                 customWidth={widthFirstRow}
                 key={`${idx}-${idxColumn}`}
                 isActions={isActions}
+                data-testid="td"
               >
                 {!render && (row[key] as string)}
                 {render && render(row[key], idx)}
