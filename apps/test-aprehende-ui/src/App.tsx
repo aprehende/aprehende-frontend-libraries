@@ -3,10 +3,8 @@ import { useState } from "react";
 
 function App() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const close = () => {
-    console.log("Holaaa");
-    setIsOpen(false);
-  };
+  const close = () => setIsOpen(false);
+
   return (
     <>
       <Button onClick={() => setIsOpen(true)}>Click me!</Button>
