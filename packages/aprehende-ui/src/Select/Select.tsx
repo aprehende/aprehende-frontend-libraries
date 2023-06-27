@@ -27,7 +27,10 @@ function Select<T>({ items, renderItem }: SelectProps<T>) {
 
   return (
     <SelectContainer>
-      <LabelOptionSelected {...getToggleButtonProps()}>
+      <LabelOptionSelected
+        {...getToggleButtonProps()}
+        data-testid="apr-select-button"
+      >
         {selectedItem && renderItem(selectedItem)}
         {!selectedItem && (
           <LabelOptionHide {...getLabelProps()}>
@@ -36,7 +39,11 @@ function Select<T>({ items, renderItem }: SelectProps<T>) {
         )}
         <BsChevronDown />
       </LabelOptionSelected>
-      <ListOfOptions {...getMenuProps()} isOpen={isOpen}>
+      <ListOfOptions
+        {...getMenuProps()}
+        isOpen={isOpen}
+        data-testid="apr-select-menu"
+      >
         {isOpen &&
           items.map((item, index) => (
             <div key={index} {...getItemProps({ item, index })}>
