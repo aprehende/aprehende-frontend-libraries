@@ -16,6 +16,7 @@ function App() {
     <>
       <Select<Country>
         items={countries}
+        onChange={console.log}
         renderItem={(item) => <div>{item.label}</div>}
       />
     </>

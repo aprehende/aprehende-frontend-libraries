@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 
 import Select from '../Select';
 
@@ -52,5 +52,25 @@ describe('Select', () => {
     fireEvent.click(item);
     expect(menu).toHaveStyle('display: none');
     expect(getByText('Mexico')).toBeInTheDocument();
+  });
+
+  it('should call onChange when selecting an item', () => {
+    const onChange = vi.fn();
+    const { getByText, getAllByRole, getByTestId } = render(
+      <Select<Country>
+        items={countries}
+        onChange={onChange}
+        renderItem={(item) => <div>{item.label}</div>}
+      />
+    );
+    const input = getByText('Seleccione un país');
+    const menu = getByTestId('apr-select-menu');
+    fireEvent.click(input);
+    expect(menu).toHaveStyle('display: block');
+    const item = getAllByRole('option')[0];
+    fireEvent.click(item);
+    expect(menu).toHaveStyle('display: none');
+    expect(getByText('Mexico')).toBeInTheDocument();
+    expect(onChange).toHaveBeenCalledWith(countries[0]);
   });
 });

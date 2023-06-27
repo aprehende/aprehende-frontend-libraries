@@ -1,4 +1,5 @@
 import { useSelect } from 'downshift';
+import { useEffect } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 
 import {
@@ -10,10 +11,11 @@ import {
 
 interface SelectProps<T> {
   items: T[];
+  onChange?: (item: T | null) => void;
   renderItem: (item: T) => React.ReactNode;
 }
 
-function Select<T>({ items, renderItem }: SelectProps<T>) {
+function Select<T>({ items, renderItem, onChange }: SelectProps<T>) {
   const {
     isOpen,
     selectedItem,
@@ -24,6 +26,10 @@ function Select<T>({ items, renderItem }: SelectProps<T>) {
   } = useSelect({
     items,
   });
+
+  useEffect(() => {
+    onChange && onChange(selectedItem);
+  }, [selectedItem]);
 
   return (
     <SelectContainer>
