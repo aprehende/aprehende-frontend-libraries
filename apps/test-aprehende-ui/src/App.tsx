@@ -9,7 +9,7 @@ function App() {
     <>
       <Button onClick={() => setIsOpen(true)}>Click me!</Button>
       {isOpen && (
-        <Modal open={isOpen} onClose={close} backdrop>
+        <Modal open={isOpen} onClose={close} backdrop closeable>
           Hola
         </Modal>
       )}
