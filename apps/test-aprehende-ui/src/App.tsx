@@ -1,18 +1,23 @@
-import { Modal, Button } from "@aprehende/ui";
-import { useState } from "react";
+import { Select } from "@aprehende/ui";
+
+interface Country {
+  value: string;
+  label: string;
+}
+
+const countries: Country[] = [
+  { value: "MX", label: "Mexico" },
+  { value: "US", label: "United States" },
+  { value: "CA", label: "Canada" },
+];
 
 function App() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const close = () => setIsOpen(false);
-
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Click me!</Button>
-      {isOpen && (
-        <Modal open={isOpen} onClose={close} backdrop closeable>
-          Hola
-        </Modal>
-      )}
+      <Select<Country>
+        items={countries}
+        renderItem={(item) => <div>{item.label}</div>}
+      />
     </>
   );
 }
