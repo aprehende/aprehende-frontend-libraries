@@ -1,4 +1,4 @@
-import { getByTestId, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
 import Table from '../Table';
@@ -401,7 +401,7 @@ describe('Table', () => {
   });
 
   it('should render table with actions', () => {
-    const { getByText } = render(
+    render(
       <Table<User>
         data={users}
         columns={[
