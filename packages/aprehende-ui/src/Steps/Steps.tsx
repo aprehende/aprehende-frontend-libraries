@@ -19,7 +19,9 @@ const Steps: React.FC<StepsProps> = ({ items, current }) => {
           done={index + 1 < current}
           current={current === index + 1}
         >
-          {index + 1 < current && <BsFillCheckCircleFill color="#0984e3" />}
+          {index + 1 < current && (
+            <BsFillCheckCircleFill color="#0984e3" data-testid="step-icon" />
+          )}
           <StepTitle>{item.title}</StepTitle>
         </StepItem>
       ))}
