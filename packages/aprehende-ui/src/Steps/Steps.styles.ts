@@ -18,13 +18,7 @@ export const StepItem = styled.div<{
     height: ${({ done }) => (done ? '0' : 'clamp(1.5rem, 5vw, 3rem);')};
     border-radius: 50%;
     border: ${({ done, current }) =>
-      done
-        ? current
-          ? '2px solid #e0e0e0'
-          : 'none'
-        : current
-        ? '2px solid #e0e0e0'
-        : '1px solid #e0e0e0'};
+      done ? 'none' : current ? '2px solid #e0e0e0' : '1px solid #e0e0e0'};
   }
 
   & > svg {
