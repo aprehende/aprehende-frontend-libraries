@@ -63,12 +63,20 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     }, [onClose, open, closeable, clickedOutsideZone, removeEvents]);
 
     return (
-      <BackdropContainer open={open} backdrop={backdrop} ref={ref}>
+      <BackdropContainer
+        open={open}
+        backdrop={backdrop}
+        ref={ref}
+        data-testid="apr-modal-backdrop"
+      >
         {open && (
           <ModalContainer size={size} ref={dialogContainer} {...rest}>
             {size !== 'full' && <FocusLock>{open && children}</FocusLock>}
             {size === 'full' && open && children}
-            <CloseButtonContainer onClick={onClose}>
+            <CloseButtonContainer
+              onClick={onClose}
+              data-testid="apr-modal-close-icon"
+            >
               {closeIcon || 'X'}
             </CloseButtonContainer>
           </ModalContainer>
